@@ -35,6 +35,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-debbieherri-beeinkspire-roezq58cv31.ws-eu106.gitpod.io',
+    'bee-inkspired-a51d6678dda0.herokuapp.com',
 ]
 
 
