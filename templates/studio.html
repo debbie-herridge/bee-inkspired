@@ -1,0 +1,28 @@
+{% block content %}
+
+<div class="col-md-6 section-column mx-auto">
+    <h1>Bee Inkspired Studio</h1>
+    <h4>Address: 12 Union St, Wisbech PE13 1DJ</h4>
+</div>
+<div>
+    <div id="map"></div>
+</div>
+
+<script>
+    function initMap() {
+        const myLatLng = { lat: 52.66568422490566, lng: 0.1604611599127387 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 17,
+            center: myLatLng,
+        });
+
+        new google.maps.Marker({
+            position: myLatLng,
+            map,
+        });
+    }
+    window.initMap = initMap;
+
+</script>
+
+{%endblock%}

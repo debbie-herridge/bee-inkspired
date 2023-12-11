@@ -83,3 +83,42 @@ body {
     width: 100%;
     object-fit: cover;
 }
+
+/* Artist information page section */
+/* .container-fluid {
+    padding: 75px 0px;
+} */
+
+.section-column {
+    text-align: center;
+    color: #cfb442;
+}
+
+/* studio google map */
+#map {
+    height: 500px;
+    margin-top: 40px;
+  }
+
+.card-body {
+    background-image: url("/static/assets/images/studio-transparent.jpg");
+    background-position: center;
+}
+
+.table {
+    --bs-table-bg: transparent !important;
+}
+
+.img-fluid {
+    min-height: 100%;
+    padding: 20px;
+}
+
+/* heading */
+h1{
+    color: #cfb442 !important;
+    text-transform: uppercase;
+    padding: 70px 0px;
+    text-align: center;
+    letter-spacing: 5px;
+}
