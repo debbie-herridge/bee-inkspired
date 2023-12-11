@@ -22,7 +22,7 @@
     <!-- Navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand text-center" href="">
+            <a class="navbar-brand text-center" href="{% url 'home' %}">
                 <img src="{% static '/assets/images/logo.jpg' %}" alt="Bee Inkspired logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav text-center mx-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="">GALLERY</a>
+                    <a class="nav-link" href="{% url 'gallery' %}">GALLERY</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">BOOKING</a>
@@ -52,7 +52,7 @@
                         {% else %}
                             <a class="dropdown-item" href="">DASHBOARD</a>
                         {% endif %}
-                        <a class="dropdown-item" href="">LOGOUT</a>
+                        <a class="dropdown-item" href="{% url 'logout' %}">LOGOUT</a>
                     </div>
                 </li>
             </ul>

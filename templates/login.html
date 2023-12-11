@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="img-background mx-auto">
+    <h1 class="login-header">login</h1>
+    <div class="col-md-12 section-column center">
+        <form class="form-container" method="POST" action="">
+            {% csrf_token %}
+            <div>
+                <input class="form-control" type="text" name="username" placeholder="Username">
+            </div>
+            <div>
+                <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-submit">
+                <a href="{% url 'register' %}">Don't have have an account?</a>
+                <br>
+                <div>
+                    <button type="submit" class="btn btn-primary btn-block mt-4">Login</button>
+                </div>
+            </div>
+            
+            {% for message in messages %}
+                <h4>{{message}}</h4>
+            {% endfor %}
+            </div>
+        </form>
+    </div>
+</div>
+
+{%endblock%}

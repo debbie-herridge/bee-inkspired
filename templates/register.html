@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="img-background mx-auto">
+    <h1 class="login-header">Register</h1>
+    <div class="col-md-12 section-column center">
+        <form class="form-container" method="POST" action="">
+            {% csrf_token %}
+            <div>
+                <input class="form-control" type="text" name="username" placeholder="Username">
+            </div>
+            <div>
+                <input class="form-control" type="email" name="email" placeholder="Email">
+            </div>
+            <div>
+                <input class="form-control" type="password" name="password1" placeholder="Password">
+            </div>
+            <div>
+                <input class="form-control" type="password" name="password2" placeholder="Password Confirmation">
+            </div>
+            <details class="text-dark">
+                <summary>
+                    Password criteria
+                    <span class="icon"></span>
+                </summary>
+                    <p>Your password can’t be too similar to your other personal information.</p>
+                    <p>Your password must contain at least 8 characters.</p>
+                    <p>Your password can’t be a commonly used password.</p>
+                    <p>Your password can’t be entirely numeric.</p>
+            </details>
+            
+            <div class="form-submit">
+                <a href="{% url 'login' %}">Already have an account?</a>
+                <div>
+                    <button type="submit" class="btn btn-primary btn-block mt-4">Register</button>
+                </div>
+            </div>
+    </form>
+    {{form.errors}}
+    </div>
+</div>
+
+{%endblock%}

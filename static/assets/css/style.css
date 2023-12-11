@@ -122,3 +122,34 @@ h1{
     text-align: center;
     letter-spacing: 5px;
 }
+
+
+/* login form */
+.form-container{
+    width:40%;
+}
+
+.form-submit {
+    padding: 50px 0px;
+}
+
+.form-control {
+    margin: 10px 0;
+}
+
+.img-background {
+    background-image: url("/static/assets/images/studio-transparent.jpg");
+    background-position: center;
+    height: auto;
+    padding-top: 10px;
+    width: 75%;
+    object-fit: cover;
+    margin: 50px 0px;
+    border-radius: 25px;
+}
+
+.login-header {
+    color: #000 !important;
+    font-weight: bolder;
+    letter-spacing: 5px;
+}
