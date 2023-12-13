@@ -94,26 +94,6 @@ body {
     color: #cfb442;
 }
 
-/* studio google map */
-#map {
-    height: 500px;
-    margin-top: 40px;
-  }
-
-.card-body {
-    background-image: url("/static/assets/images/studio-transparent.jpg");
-    background-position: center;
-}
-
-.table {
-    --bs-table-bg: transparent !important;
-}
-
-.img-fluid {
-    min-height: 100%;
-    padding: 20px;
-}
-
 /* heading */
 h1{
     color: #cfb442 !important;
@@ -123,8 +103,29 @@ h1{
     letter-spacing: 5px;
 }
 
+h2 {
+    color: #000 !important;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px 0px;
+}
 
-/* login form */
+.booking-image {
+    width: 200px;
+    object-fit: cover;
+}
+
+.design-background{
+    background-color: #fff;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* form */
 .form-container{
     width:40%;
 }
@@ -152,4 +153,32 @@ h1{
     color: #000 !important;
     font-weight: bolder;
     letter-spacing: 5px;
+}
+
+.booking-label {
+    color: #0d0d0d !important;
+    font-weight: bolder;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-size: large;
+}
+
+/* studio google map */
+#map {
+    height: 500px;
+    margin-top: 40px;
+  }
+
+.card-body {
+    background-image: url("/static/assets/images/studio-transparent.jpg");
+    background-position: center;
+}
+
+.table {
+    --bs-table-bg: transparent !important;
+}
+
+.img-fluid {
+    min-height: 100%;
+    padding: 20px;
 }
