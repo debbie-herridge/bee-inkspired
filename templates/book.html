@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <h1>Current Flash Designs</h1>
+    <div class="row">
+	{% for design in designs %}
+        <div class="col-12 col-sm-6 col-lg-3 mb-4">
+            <div class="card grow">
+                <img class="card-img-top img-fluid img-thumbnail" src="{{ design.image.url }}" alt="{{ design.name }}">
+            </div>
+        </div>
+    {% endfor %} 
+    </div>
+</div>
+
+<div class="img-background mx-auto">
+    <h1 class="login-header">Book</h1>
+    <div class="col-md-12 section-column center">
+        <form class="form-container" method="POST" action="{% url 'book' %}">
+            {% csrf_token %}
+            <div>
+                <label class="booking-label">date</label>
+                <select name="day">
+                    {% for date in dates %}
+                        <option value="{{dates}}">{{date}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label class="booking-label">design</label>
+                    {{form.design}}
+            </div>
+            <div>
+                <label class="booking-label">preference</label>
+                    {{form.preference}}
+            </div>
+            <div>
+                <button type="submit" class="btn btn-dark btn-block mt-4">Book</button>
+            </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{%endblock%}

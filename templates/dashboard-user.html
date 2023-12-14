@@ -30,17 +30,17 @@
               <th><h2>Time</h2></th>
               <th><h2>Design</h2></th>
               <th><h2>Preference</h2></th>
-              <th><h2>Amend</h2></th>
-              <th><h2>Cancel</h2></th>
+              <th></th>
+              <th></th>
              </tr>
             {% for booking in bookings %}
               <tr>
-                <td>date</td>
-                <td>time</td>
+                <td>{{booking.date}}</td>
+                <td>9AM - 10AM</td>
                 <td>{{booking.design}}</td>
                 <td>{{booking.preference}}</td>
-                <td><a class='btn btn-dark' href="{% url 'update-booking' booking.id %}">Amend</a></td>
-                <td><a class='btn btn-dark' href="{% url 'cancel-booking' booking.id %}">Cancel</a></td>
+                <td><a class='btn btn-dark' href="">Amend</a></td>
+                <td><a class='btn btn-dark' href="">Cancel</a></td>
               </tr>
             {% endfor %}
           </table>

@@ -169,6 +169,8 @@ h2 {
     margin-top: 40px;
   }
 
+
+/* dashboard */
 .card-body {
     background-image: url("/static/assets/images/studio-transparent.jpg");
     background-position: center;
@@ -178,7 +180,19 @@ h2 {
     --bs-table-bg: transparent !important;
 }
 
+/* flash design images */
 .img-fluid {
-    min-height: 100%;
+    max-height: 300px;
     padding: 20px;
+}
+
+.grow img{
+    transition: 1s ease;
+    }
+    
+.grow img:hover{
+-webkit-transform: scale(1.1);
+-ms-transform: scale(1.1);
+transform: scale(1.1);
+transition: 1s ease;
 }

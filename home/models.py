@@ -21,18 +21,14 @@ class Design(models.Model):
 
 # Appointment booking model
 class Booking(models.Model):
-    STATUS = (
-        ('booked','booked'),
-        ('available','available')
-    )
     PREFERENCE = (
-        ('radio','radio'),
-        ('talking','talking'),
-        ('silence','silence'),
-        ('not fused','not fused')
+        ('radio','Radio'),
+        ('talking','Talking'),
+        ('silence','Silence'),
+        ('not fused','Not fused')
     )
     date = models.DateField(default=date.today)
-    customer = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    customer = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     design = models.ForeignKey(Design, null=True, on_delete=models.SET_NULL)
-    status = models.CharField(max_length=200, null=True, choices=STATUS)
+    available = models.BooleanField(default=True)
     preference = models.CharField(max_length=200, null=True, choices=PREFERENCE)

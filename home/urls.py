@@ -11,4 +11,6 @@ urlpatterns = [
 
     path('dashboard/', views.customerDashboard, name='customer-dashboard'),
     path('dashboard-artist/', views.artistDashboard, name='artist-dashboard'),
+
+    path('book/', views.book, name='book'),
 ]
