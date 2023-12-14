@@ -72,11 +72,15 @@ def customerDashboard(request):
 @allowed_users(allowed_roles=['admin'])
 def artistDashboard(request):
     bookings = Booking.objects.all()
+    enquiry = Enquiry.objects.all()
     total_bookings = bookings.count()
+    enquiry_bookings = enquiry.count()
 
     context = {
         'bookings':bookings, 
         'total_bookings':total_bookings,
+        'enquiry':enquiry,
+        'enquiry_bookings':enquiry_bookings,
     }
     return render(request, 'dashboard-artist.html', context)
 
@@ -85,7 +89,7 @@ def week(days):
     dates_list = []
     start = datetime.datetime.today()
     for day in range(0,days):
-        dates_list.append((start + datetime.timedelta(days=day)).strftime('%d-%m-%y'))
+        dates_list.append((start + datetime.timedelta(days=day)).strftime('%a %d %b'))
     return dates_list
 
 # Booking flash design appointment page
@@ -93,16 +97,50 @@ def week(days):
 def book(request):
     designs = Design.objects.all()
     dates = week(14)
-    form = BookingForm()
+
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
-            form.save()
+            print(request.POST)
+            booking = form.save(commit=False)
+            booking.customer = request.user
+
+            booking.date = request.POST['date']
+            print(booking.date)
+            date_str = booking.date
+            print(date_str)
+            date_object = datetime.datetime.strptime(date_str, '%a %d %b').date()
+            print(date_object)
+
+            booking.save()
             return redirect('customer-dashboard')
+        else:
+            print('form not valid')
+            print(form.errors)
+
+    else:
+        form = BookingForm()
 
     context = {
         'form':form,
         'dates':dates,
         'designs':designs,
-    }
+    }  
+
     return render(request, 'book.html', context)
+
+
+# Send an enquiry
+@login_required
+def userEnquiry(request):
+    enquiry = EnquiryForm()
+    if request.method == 'POST':
+        enquiry = EnquiryForm(request.POST)
+        if enquiry.is_valid():
+            enquiry.save()
+            messages.success(request, 'Thank you, your enquiry has been sent and Olivia will be in touch as soon as possible!')
+            return
+    context = {
+        'enquiry':enquiry,
+    }
+    return render(request, 'enquire.html', context)

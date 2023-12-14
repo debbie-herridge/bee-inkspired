@@ -32,3 +32,9 @@ class Booking(models.Model):
     design = models.ForeignKey(Design, null=True, on_delete=models.SET_NULL)
     available = models.BooleanField(default=True)
     preference = models.CharField(max_length=200, null=True, choices=PREFERENCE)
+
+# User upload image enquiry
+class Enquiry(models.Model):
+    customer = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    enquiry = models.CharField(max_length=500, null=True)
+    image = models.ImageField(upload_to='customer-enqiries')

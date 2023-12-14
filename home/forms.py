@@ -15,4 +15,10 @@ class CreateUserForm(UserCreationForm):
 class BookingForm(ModelForm):
     class Meta: 
         model = Booking
-        fields = '__all__'
+        fields = ['design','preference']
+
+# Enquiry form
+class EnquiryForm(ModelForm):
+    class Meta: 
+        model = Enquiry
+        fields = ['enquiry','image']

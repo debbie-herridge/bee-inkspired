@@ -33,8 +33,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'gallery' %}">GALLERY</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'book' %}">BOOKING</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">BOOK</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{% url 'book' %}">FLASH DESIGN</a>
+                            <a class="dropdown-item" href="{% url 'enquire' %}">ENQUIRE</a>
+                        </div>
                 </li>
                 <li class="nav-item dropdown">
                 {% if user.is_authenticated %}
