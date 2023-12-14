@@ -43,14 +43,14 @@
                     </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             {% if user.is_staff %}
-                                <a class="dropdown-item" href="">DASHBOARD</a>
+                                <a class="dropdown-item" href="{% url 'artist-dashboard' %}">DASHBOARD</a>
                             {% else %}
-                                <a class="dropdown-item" href="">DASHBOARD</a>
+                                <a class="dropdown-item" href="{% url 'customer-dashboard' %}">DASHBOARD</a>
                             {% endif %}
                             <a class="dropdown-item" href="{% url 'logout' %}">LOGOUT</a>
                         </div>
                     {% else %}
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link" href="{% url 'login' %}">
                         LOGIN
                         </a>
                 {% endif %}

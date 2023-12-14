@@ -2,9 +2,11 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
+from .models import * 
 from .forms import *
-from .decorators import unauthenticated_user
+from .decorators import unauthenticated_user, allowed_users
 
 # Create your views here.
 def home(request):
@@ -39,9 +41,9 @@ def loginPage(request):
         if user is not None:
             login(request, user)
             if request.user.is_staff:
-                return redirect('dashboard')
+                return redirect('artist-dashboard')
             else:
-                return redirect('customer')
+                return redirect('customer-dashboard')
         else:
             messages.info(request, 'Username or password is invalid')
     context = {
@@ -52,3 +54,25 @@ def loginPage(request):
 def logoutUser(request):
     logout(request)
     return redirect('login')
+
+
+# User dashboard
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer'])
+def customerDashboard(request):
+    context = {
+    }
+    return render(request, 'dashboard-user.html',context)
+
+# Artist dashboard
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
+def artistDashboard(request):
+    bookings = Booking.objects.all()
+    total_bookings = bookings.count()
+
+    context = {
+        'bookings':bookings, 
+        'total_bookings':total_bookings,
+    }
+    return render(request, 'dashboard-artist.html', context)

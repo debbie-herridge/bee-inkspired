@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container text-center">
+    <div class="row">
+      <div class="col dashboard-heading">
+        <h1>Account information</h1>
+        <div class="card card-body">
+          <table class="table">
+            <tr>
+              <th><h2>Name</h2></th>
+              <th><h2>Email</h2></th>
+            </tr>
+            <tr>
+              <td>{{request.user.username}}</td>
+              <td>{{request.user.email}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row"> 
+      <div class="col dashboard-heading">
+        <h1>Upcoming bookings</h1>
+        <div class="card card-body">
+          <table class="table">
+            <tr>
+              <th><h2>Date</h2></th>
+              <th><h2>Time</h2></th>
+              <th><h2>Design</h2></th>
+              <th><h2>Preference</h2></th>
+              <th><h2>Amend</h2></th>
+              <th><h2>Cancel</h2></th>
+             </tr>
+            {% for booking in bookings %}
+              <tr>
+                <td>date</td>
+                <td>time</td>
+                <td>{{booking.design}}</td>
+                <td>{{booking.preference}}</td>
+                <td><a class='btn btn-dark' href="{% url 'update-booking' booking.id %}">Amend</a></td>
+                <td><a class='btn btn-dark' href="{% url 'cancel-booking' booking.id %}">Cancel</a></td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{%endblock%}
