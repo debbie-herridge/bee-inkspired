@@ -13,7 +13,8 @@
             <tr>
                 <th><h2>Date</h2></th>
                 <th><h2>Time</h2></th>
-                <th><h2>Client</h2></th>
+                <th colspan="2"><h2>Client</h2></th>
+                <th><h2>Email</h2></th>
                 <th><h2>Design</h2></th>
                 <th><h2>Tags</h2></th>
                 <th><h2>Preference</h2></th>
@@ -22,9 +23,15 @@
                 <tr>
                     <td>{{booking.date}}</td>
                     <td>9AM - 10AM</td>
-                    <td>{{booking.customer}}</td>
+                    <td>{{booking.customer.first_name}}</td>
+                    <td>{{booking.customer.last_name}}</td>
+                    <td>{{booking.customer.email}}</td>
                     <td>{{booking.design}}</td>
-                    <td>{% for tags in booking.design.tags.all %} {{ tags }} / {% endfor %}</td>
+                    <td>
+                        {% for tags in booking.design.tags.all %} 
+                            {{ tags }} / 
+                        {% endfor %}
+                    </td>
                     <td>{{booking.preference}}</td>
                 </tr>
             {% endfor %}

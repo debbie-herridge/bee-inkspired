@@ -10,13 +10,17 @@
           <table class="table">
             <tr>
               <th><h2>Username</h2></th>
+              <th><h2>Name</h2></th>
+              <th><h2>Surname</h2></th>
               <th><h2>Email</h2></th>
               <th></th>
             </tr>
             <tr>
               <td>{{request.user.username}}</td>
+              <td>{{request.user.first_name}}</td>
+              <td>{{request.user.last_name}}</td>
               <td>{{request.user.email}}</td>
-              <td><a class='btn btn-dark' href="">Update your details</a></td>
+              <td><a class='btn btn-dark' href="{% url 'edit_profile' %}">Update your details</a></td>
             </tr>
           </table>
         </div>

@@ -163,12 +163,23 @@ h2 {
     font-size: large;
 }
 
+.btn {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
 /* studio google map */
 #map {
     height: 500px;
     margin-top: 40px;
   }
 
+/* gallery */
+.gallery {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
 
 /* dashboard */
 .card-body {
@@ -196,3 +207,5 @@ h2 {
 transform: scale(1.1);
 transition: 1s ease;
 }
+
+

@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.views import generic
+from django.urls import reverse_lazy
 import datetime
 
 from .models import * 
@@ -56,6 +58,16 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
+class EditUser(generic.UpdateView):
+    """
+    Edit signed in users information
+    """
+    form_class = EditUserProfile
+    template_name = "edit-user.html"
+    success_url = reverse_lazy('customer-dashboard')
+
+    def get_object(self):
+        return self.request.user
 
 # User dashboard
 @login_required(login_url='login')
