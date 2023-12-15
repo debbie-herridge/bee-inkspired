@@ -38,11 +38,11 @@
             <div class="form-submit">
                 <a href="{% url 'login' %}">Already have an account?</a>
                 <div>
-                    <button type="submit" class="btn btn-primary btn-block mt-4">Register</button>
+                    <button type="submit" class="btn btn-dark btn-block mt-4">Register</button>
                 </div>
+                {{form.errors}}
             </div>
     </form>
-    {{form.errors}}
     </div>
 </div>
 

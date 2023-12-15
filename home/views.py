@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
 from django.views import generic
 from django.urls import reverse_lazy
 import datetime
@@ -25,9 +26,9 @@ def register(request):
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('username')
-            messages.success(request, 'Welcome to the family ' + user)
+            user = form.save()
+            group = Group.objects.get(name='customer')
+            user.groups.add(group)
             return redirect('login')
     context = {
         'form':form
