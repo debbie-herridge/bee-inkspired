@@ -37,4 +37,4 @@ class Booking(models.Model):
 class Enquiry(models.Model):
     customer = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     enquiry = models.CharField(max_length=500, null=True)
-    image = models.ImageField(upload_to='customer-enqiries')
+    image = models.FileField(upload_to='customer-enqiries')

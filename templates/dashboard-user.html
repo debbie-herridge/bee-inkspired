@@ -9,12 +9,14 @@
         <div class="card card-body">
           <table class="table">
             <tr>
-              <th><h2>Name</h2></th>
+              <th><h2>Username</h2></th>
               <th><h2>Email</h2></th>
+              <th></th>
             </tr>
             <tr>
               <td>{{request.user.username}}</td>
               <td>{{request.user.email}}</td>
+              <td><a class='btn btn-dark' href="">Update your details</a></td>
             </tr>
           </table>
         </div>

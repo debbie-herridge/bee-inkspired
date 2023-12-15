@@ -102,17 +102,11 @@ def book(request):
         form = BookingForm(request.POST)
         if form.is_valid():
             print(request.POST)
+
             booking = form.save(commit=False)
             booking.customer = request.user
-
-            booking.date = request.POST['date']
-            print(booking.date)
-            date_str = booking.date
-            print(date_str)
-            date_object = datetime.datetime.strptime(date_str, '%a %d %b').date()
-            print(date_object)
-
             booking.save()
+            
             return redirect('customer-dashboard')
         else:
             print('form not valid')
@@ -133,14 +127,21 @@ def book(request):
 # Send an enquiry
 @login_required
 def userEnquiry(request):
-    enquiry = EnquiryForm()
+    form = EnquiryForm()
     if request.method == 'POST':
-        enquiry = EnquiryForm(request.POST)
-        if enquiry.is_valid():
+        form = EnquiryForm(request.POST, request.FILES)
+        if form.is_valid():
+
+            enquiry = form.save(commit=False)
+            enquiry.customer = request.user
             enquiry.save()
+
             messages.success(request, 'Thank you, your enquiry has been sent and Olivia will be in touch as soon as possible!')
-            return
+            return render(request, 'enquiry-success.html')
+        else:
+            print('form not valid')
+            print(enquiry.errors)
     context = {
-        'enquiry':enquiry,
+        'form':form,
     }
     return render(request, 'enquire.html', context)
