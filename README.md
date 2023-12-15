@@ -25,13 +25,15 @@ As a B2C site the final aim is to impress customers to book a tattoo or make an 
 
 - Users will need to pay a deposit to secure their booking.
 - Times slots added to bookings so there can be multiple flash tattoos in a day if the artist has no other tattoos scheduled for that day.
+- Users dashboards will have status updates for any enquiries they send
+- Time limit for when users can update their booking
 
 
 
 ## Bugs
 
 The form to create a booking is made with a custom date field to only display the upcoming 2 weeks, therefore this data then had to be modified and saved onto the booking model.
-
+https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior
 
 
 ## Creating the website
@@ -72,6 +74,7 @@ Steps to configure and deploy the application.
 A big thank you to Olivia Harper for sending all the original material for me to create this project.
 
 ### Code
+
 
 Thank you to [Dennis Ivy](https://www.youtube.com/watch?v=xv_bwpA_aEA&list=PL-51WBLyFTg2vW-_6XBoUpE7vpmoR3ztO) on Youtube for his in depth walk through of a booking project.
 Also thank you to Code Institute's tutor support team for helping me out with the date issue in my booking form as mentioned in the above bugs section.

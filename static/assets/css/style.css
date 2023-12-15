@@ -105,6 +105,17 @@ p a:hover {
 
 }
 
+input {
+    text-align: center;
+}
+
+select {
+    width: 60%;
+    text-align: center;
+    height: 40px;
+    background: transparent;
+    border: #000 2px solid;
+}
 
 /* enquiry form */
 #id_enquiry {
@@ -175,6 +186,7 @@ h4 {
     object-fit: cover;
     margin: 50px 0px;
     border-radius: 25px;
+    text-align: center;
 }
 
 .login-header {
@@ -201,6 +213,11 @@ h4 {
     height: 500px;
     margin-top: 40px;
   }
+
+#studio-address {
+    color: #cfb442 !important;
+    text-align: center;
+}
 
 /* gallery */
 .gallery {
@@ -250,4 +267,25 @@ left: 50%;
 -ms-transform: translate(-50%, -50%);
 transform: translate(-50%, -50%);
 text-align: center;
+}
+
+
+/* login link */
+.login-link{
+    color: #000;
+    margin: 50px;
+    text-decoration: none;
+}
+
+.login-link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bolder;
+}
+
+
+/* booking image dashboard  */
+#booking-image {
+    height: 150px;
+    width: 150px;
 }

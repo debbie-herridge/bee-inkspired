@@ -102,7 +102,7 @@ def week(days):
     dates_list = []
     start = datetime.datetime.today()
     for day in range(0,days):
-        dates_list.append((start + datetime.timedelta(days=day)).strftime('%a %d %b'))
+        dates_list.append((start + datetime.timedelta(days=day)).strftime('%a %d %b %Y'))
     return dates_list
 
 # Booking flash design appointment page
@@ -115,11 +115,14 @@ def book(request):
         form = BookingForm(request.POST)
         if form.is_valid():
             print(request.POST)
-
             booking = form.save(commit=False)
             booking.customer = request.user
+
+            # Change date back into strptime to save onto booking model
+            date_object = request.POST['date']
+            booking.date = datetime.datetime.strptime(date_object, '%a %d %b %Y').date()
+
             booking.save()
-            
             return redirect('customer-dashboard')
         else:
             print('form not valid')
@@ -136,6 +139,9 @@ def book(request):
 
     return render(request, 'book.html', context)
 
+@login_required
+def updateBooking(request):
+    return render(request, 'update-booking.html')
 
 # Send an enquiry
 @login_required

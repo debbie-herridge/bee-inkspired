@@ -16,13 +16,10 @@
             {% for message in messages %}
                 <h4>{{message}}</h4>
             {% endfor %}
-            <div class="form-submit">
-                <a href="{% url 'register' %}">Don't have have an account?</a>
+            <div class="mb-5">  
+                <button type="submit" class="btn btn-dark btn-block mt-4">Login</button>
                 <br>
-                <div>
-                    <button type="submit" class="btn btn-primary btn-block mt-4">Login</button>
-                </div>
-            </div>
+                <a class="login-link" href="{% url 'register' %}">Don't have have an account?</a>
             </div>
         </form>
     </div>

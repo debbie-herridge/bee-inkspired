@@ -43,10 +43,10 @@
               <tr>
                 <td>{{booking.date}}</td>
                 <td>9AM - 10AM</td>
-                <td>{{booking.design}}</td>
+                <td><img id="booking-image" src="{{ booking.design.image.url }}" alt="{{ booking.design }}"></td>
                 <td>{{booking.preference}}</td>
-                <td><a class='btn btn-dark' href="">Amend</a></td>
-                <td><a class='btn btn-dark' href="">Cancel</a></td>
+                <td><a class='btn btn-dark' href="{% url 'update-booking' %}">Update this booking</a></td>
+                <td><a class='btn btn-dark' href="">Cancel booking</a></td>
               </tr>
             {% endfor %}
           </table>
