@@ -34,13 +34,12 @@
                     <p>Your password can’t be a commonly used password.</p>
                     <p>Your password can’t be entirely numeric.</p>
             </details>
-            
             <div class="form-submit">
+                {{form.errors}}
                 <a href="{% url 'login' %}">Already have an account?</a>
                 <div>
                     <button type="submit" class="btn btn-dark btn-block mt-4">Register</button>
                 </div>
-                {{form.errors}}
             </div>
     </form>
     </div>

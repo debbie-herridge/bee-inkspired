@@ -89,9 +89,30 @@ body {
     padding: 75px 0px;
 } */
 
-.section-column {
-    text-align: center;
+p {
     color: #cfb442;
+}
+
+/* link to send enquiry */
+p a {
+    color: #cfb442;
+    font-weight: bolder;
+}
+
+p a:hover {
+    text-decoration: underline;
+    color: #ffdf50;
+
+}
+
+
+/* enquiry form */
+#id_enquiry {
+    width: 60%;
+    min-height: 150px;
+    background: transparent;
+    border: #000 2px solid;
+    border-radius: 5px;
 }
 
 /* heading */
@@ -108,6 +129,13 @@ h2 {
     text-transform: uppercase;
     font-weight: bold;
     padding: 20px 0px;
+}
+
+h4 {
+    color: #000 !important;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px 0px;
 }
 
 .booking-image {
@@ -197,15 +225,29 @@ h2 {
     padding: 20px;
 }
 
-.grow img{
-    transition: 1s ease;
-    }
-    
-.grow img:hover{
--webkit-transform: scale(1.1);
--ms-transform: scale(1.1);
-transform: scale(1.1);
-transition: 1s ease;
+.overlay {
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+height: 100%;
+width: 100%;
+opacity: 0;
+transition: .5s ease;
+background-color: black;
 }
 
+.card:hover .overlay {
+opacity: 0.9;
+}
 
+.text {
+position: absolute;
+top: 50%;
+left: 50%;
+-webkit-transform: translate(-50%, -50%);
+-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
+text-align: center;
+}

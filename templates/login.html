@@ -13,6 +13,9 @@
             <div>
                 <input class="form-control" type="password" name="password" placeholder="Password">
             </div>
+            {% for message in messages %}
+                <h4>{{message}}</h4>
+            {% endfor %}
             <div class="form-submit">
                 <a href="{% url 'register' %}">Don't have have an account?</a>
                 <br>
@@ -20,10 +23,6 @@
                     <button type="submit" class="btn btn-primary btn-block mt-4">Login</button>
                 </div>
             </div>
-            
-            {% for message in messages %}
-                <h4>{{message}}</h4>
-            {% endfor %}
             </div>
         </form>
     </div>

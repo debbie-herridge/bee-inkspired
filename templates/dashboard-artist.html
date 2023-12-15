@@ -43,7 +43,7 @@
           <div class="card card-body">
             <table class="table">
               <tr>
-                <th><h2>Name</h2></th>
+                <th colspan="2"><h2>Name</h2></th>
                 <th><h2>Email</h2></th>
                 <th><h2>Details</h2></th>
                 <th><h2>Image</h2></th>
@@ -51,7 +51,8 @@
               </tr>
               {% for enquiries in enquiry %}
               <tr>
-                <td>{{enquiries.customer}}</td>
+                <td>{{enquiries.customer.first_name}}</td>
+                <td>{{enquiries.customer.last_name}}</td>
                 <td>{{enquiries.customer.email}}</td>
                 <td>{{enquiries.enquiry}}</td>
                 <td><a class='btn btn-dark' href="{{enquiries.image.url}}" target="_blank">View Image</a></td>

@@ -4,43 +4,51 @@
 
 <div class="container">
     <h1>Current Flash Designs</h1>
-    <div class="row">
+    <p class="text-center">
+        If you have a more specific design or would like one of the flash designs
+        tweaked to your liking, please send me an <a href="{% url 'enquire' %}"> enquiry</a> and we can work something out!
+    </p>
+    <div class="row mt-5">
 	{% for design in designs %}
-        <div class="col-12 col-sm-6 col-lg-3 mb-4">
-            <div class="card grow">
+        <div class="col-sm-6 col-lg-3 mb-4">
+            <div class="card">
                 <img class="card-img-top img-fluid img-thumbnail" src="{{ design.image.url }}" alt="{{ design.name }}">
+                <div class="overlay">
+                    <div class="text"><h1>{{ design.name }}</h1></div>
+                </div>
             </div>
         </div>
     {% endfor %} 
     </div>
 </div>
 
-<div class="img-background mx-auto">
+<div class="img-background mx-auto text-center">
     <h1 class="login-header">Book</h1>
-    <div class="col-md-12 section-column center form-container">
-        <form method="POST">
+        <form method="POST" action="">
             {% csrf_token %}
-            <div>
-                <label class="booking-label">date</label>
+            <label class="booking-label">date</label>
+            <div class="m-3 text-center">
                 <select name="date">
                     {% for date in dates %}
                         <option value="{{date}}">{{date}}</option>
                     {% endfor %}
                 </select>
             </div>
-            <div>
-                <label class="booking-label">design</label>
-                    {{form.design}}
+            <label class="booking-label">design</label>
+            <div class="m-3">
+                {{form.design}}
+            </div>
+            <label class="booking-label">preference</label>
+            <div class="m-3">
+                {{form.preference}}
             </div>
             <div>
-                <label class="booking-label">preference</label>
-                    {{form.preference}}
+                <button type="submit" class="btn btn-dark btn-block m-4">Book</button>
             </div>
-            <div>
-                <button type="submit" class="btn btn-dark btn-block mt-4">Book</button>
             </div>
         </form>
     </div>
 </div>
+
 
 {%endblock%}

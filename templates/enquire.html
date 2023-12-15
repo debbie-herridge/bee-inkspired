@@ -3,21 +3,20 @@
 
 {% block content %}
 
-<div class="img-background mx-auto">
+<div class="img-background mx-auto text-center">
     <h1 class="login-header">Enquire</h1>
-    <div class="col-md-12 section-column center">
-        <form class="form-container" method="POST" action="" enctype="multipart/form-data">
+        <form method="POST" action="" enctype="multipart/form-data">
             {% csrf_token %}
-            <div>
-                <label class="booking-label">Image upload</label>
+            <label class="booking-label">Image upload</label>
+            <div class="m-3 text-center">
                 {{form.image}}
             </div>
-            <div>
-                <label class="booking-label">Tell me more!</label>
+            <label class="booking-label">Tell me more!</label>
+            <div class="m-3">
                 {{form.enquiry}}
             </div>
             <div>
-                <button type="submit" class="btn btn-dark btn-block mt-4">Send Enquiry</button>
+                <button type="submit" class="btn btn-dark btn-block m-4">Send Enquiry</button>
             </div>
             </div>
         </form>
