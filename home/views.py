@@ -75,7 +75,7 @@ class EditUser(generic.UpdateView):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def customerDashboard(request):
-    bookings = Booking.objects.filter(customer=request.user)
+    bookings = Booking.objects.filter(customer=request.user).order_by('date')
     context = {
         'bookings':bookings,
     }
