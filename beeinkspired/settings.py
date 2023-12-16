@@ -34,13 +34,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-debbieherri-beeinkspire-roezq58cv31.ws-eu106.gitpod.io',
+    '8000-debbieherri-beeinkspire-roezq58cv31.ws-eu107.gitpod.io',
     'bee-inkspired-a51d6678dda0.herokuapp.com',
 ]
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

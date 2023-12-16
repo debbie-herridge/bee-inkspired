@@ -97,13 +97,30 @@ def artistDashboard(request):
     }
     return render(request, 'dashboard-artist.html', context)
 
-# Put next 14 days into a list
+# Put next 14 days into a list and remove booked dates
 def week(days):
     dates_list = []
+    unavailable = []
+    print(unavailable)
     start = datetime.datetime.today()
+
     for day in range(0,days):
         dates_list.append((start + datetime.timedelta(days=day)).strftime('%a %d %b %Y'))
+
+    booked = Booking.objects.values_list('date', flat=True)
+        
+    for slot in booked:
+        booked_slot = slot.strftime('%a %d %b %Y')
+        unavailable.append(booked_slot)
+
+    for i in unavailable:
+        try:
+            dates_list.remove(i)
+        except ValueError:
+            pass
+
     return dates_list
+
 
 # Booking flash design appointment page
 @login_required
@@ -114,7 +131,6 @@ def book(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
-            print(request.POST)
             booking = form.save(commit=False)
             booking.customer = request.user
 
