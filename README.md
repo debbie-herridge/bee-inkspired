@@ -36,6 +36,10 @@ The form to create a booking is made with a custom date field to only display th
 https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior
 
 
+Making list of available dates
+https://www.geeksforgeeks.org/python-remove-all-values-from-a-list-present-in-other-list/
+
+
 ## Creating the website
 
 The project was created on Gitpod and pushed to GitHub, the Data is stored with ElephantSQL and media is stored in Cloudinary, both linked with API's to the project. The website is then deployed to create the app using Heroku.

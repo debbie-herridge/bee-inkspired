@@ -30,6 +30,9 @@ class BookingForm(ModelForm):
         model = Booking
         fields = ['design','preference']
 
+# cancel booking
+
+
 # Enquiry form
 class EnquiryForm(ModelForm):
     class Meta: 

@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import Group
 from django.views import generic
 from django.urls import reverse_lazy
@@ -101,13 +102,11 @@ def artistDashboard(request):
 def week(days):
     dates_list = []
     unavailable = []
-    print(unavailable)
     start = datetime.datetime.today()
+    booked = Booking.objects.values_list('date', flat=True)
 
     for day in range(0,days):
         dates_list.append((start + datetime.timedelta(days=day)).strftime('%a %d %b %Y'))
-
-    booked = Booking.objects.values_list('date', flat=True)
         
     for slot in booked:
         booked_slot = slot.strftime('%a %d %b %Y')
@@ -155,9 +154,19 @@ def book(request):
 
     return render(request, 'book.html', context)
 
+# update booking
 @login_required
 def updateBooking(request):
     return render(request, 'update-booking.html')
+
+# cancel booking
+@login_required
+def cancelBooking(request, pk):
+    booking = get_object_or_404(Booking, pk=pk)
+    if request.method == 'POST':
+        booking.delete()
+        return redirect('customer-dashboard')
+    return render(request, 'cancel-booking.html', {'booking': booking})
 
 # Send an enquiry
 @login_required
