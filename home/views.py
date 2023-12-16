@@ -156,8 +156,21 @@ def book(request):
 
 # update booking
 @login_required
-def updateBooking(request):
-    return render(request, 'update-booking.html')
+def updateBooking(request, pk):
+    booking = get_object_or_404(Booking, pk=pk)
+    if request.method == 'POST':
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            booking = form.save(commit=False)
+            booking.user = request.user
+            booking.save()
+            return redirect('customer-dashboard')
+    else:
+        form = BookingForm(instance=booking)
+    context = {
+        'form':form,
+    }
+    return render(request, 'update-booking.html', context)
 
 # cancel booking
 @login_required
@@ -166,7 +179,10 @@ def cancelBooking(request, pk):
     if request.method == 'POST':
         booking.delete()
         return redirect('customer-dashboard')
-    return render(request, 'cancel-booking.html', {'booking': booking})
+    context = {
+        'booking':booking,
+    }
+    return render(request, 'cancel-booking.html', context)
 
 # Send an enquiry
 @login_required

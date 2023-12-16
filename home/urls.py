@@ -14,7 +14,7 @@ urlpatterns = [
     path('dashboard-artist/', views.artistDashboard, name='artist-dashboard'),
 
     path('book/', views.book, name='book'),
-    path('update-booking/', views.updateBooking, name='update-booking'),
+    path('update-booking/<pk>/', views.updateBooking, name='update-booking'),
     path('cancel-booking/<pk>/', views.cancelBooking, name='cancel-booking'),
 
     path('enquire/', views.userEnquiry, name='enquire'),
