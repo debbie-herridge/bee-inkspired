@@ -158,17 +158,24 @@ def book(request):
 @login_required
 def updateBooking(request, pk):
     booking = get_object_or_404(Booking, pk=pk)
+    dates = week(14)
     if request.method == 'POST':
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
             booking = form.save(commit=False)
-            booking.user = request.user
+            booking.customer = request.user
+                        
+            date_object = request.POST['date']
+            booking.date = datetime.datetime.strptime(date_object, '%a %d %b %Y').date()
+
             booking.save()
+
             return redirect('customer-dashboard')
     else:
         form = BookingForm(instance=booking)
     context = {
         'form':form,
+        'dates':dates,
     }
     return render(request, 'update-booking.html', context)
 
