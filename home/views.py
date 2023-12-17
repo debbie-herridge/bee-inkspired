@@ -15,7 +15,11 @@ from .decorators import unauthenticated_user, allowed_users
 
 # Create your views here.
 def home(request):
-    return render(request, 'index.html')
+    reviews = Review.objects.all()
+    context = {
+        'reviews':reviews,
+    }
+    return render(request, 'index.html', context)
 
 def gallery(request):
     return render(request, 'gallery.html')
@@ -75,9 +79,12 @@ class EditUser(generic.UpdateView):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def customerDashboard(request):
-    bookings = Booking.objects.filter(customer=request.user).order_by('date')
+    today = datetime.datetime.today()
+    bookings = Booking.objects.filter(customer=request.user).filter(date__gte=today).order_by('date')
+    previous_booking = Booking.objects.filter(customer=request.user).exclude(date__gte=today).order_by('date')
     context = {
         'bookings':bookings,
+        'previous_booking':previous_booking,
     }
     return render(request, 'dashboard-user.html',context)
 
@@ -225,3 +232,26 @@ def deleteEnquiry(request, pk):
         'enquiry':enquiry,
     }
     return render(request, 'delete-enquiry.html', context)
+
+
+# Booking flash design appointment page
+@login_required
+def reviewForm(request):
+    if request.method == 'POST':
+        form = UserReview(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.customer = request.user
+            review.save()
+            return redirect('customer-dashboard')
+        else:
+            print('form not valid')
+            print(form.errors)
+    else:
+        form = UserReview()
+
+    context = {
+        'form':form,
+    }  
+
+    return render(request, 'review-form.html', context)

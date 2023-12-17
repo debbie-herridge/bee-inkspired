@@ -214,7 +214,7 @@ h4 {
     margin-top: 40px;
   }
 
-#studio-address {
+.studio-address {
     color: #cfb442 !important;
     text-align: center;
 }
@@ -288,4 +288,13 @@ text-align: center;
 #booking-image {
     height: 150px;
     width: 150px;
+}
+
+/* review text input */
+#id_review {
+    width: 60%;
+    min-height: 150px;
+    background: transparent;
+    border: #000 2px solid;
+    border-radius: 5px;
 }

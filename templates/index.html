@@ -8,4 +8,19 @@
 
 {% include "studio.html" %}
 
+<section class="container-fluid">
+    <div class="row">
+        <h1 class="dashboard-heading">Reviews</h1>
+        {% for review in reviews %}
+            <div class="col mb-3">
+                <p class="studio-address">{{ review.customer }}</p>
+                <br>
+                <p class="studio-address"><strong>Rating: {{ review.rating }}</strong> </p>
+                <p class="studio-address">{{ review.recommend }}</p>
+                <p class="studio-address">{{ review.review }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
 {%endblock%}

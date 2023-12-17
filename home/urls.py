@@ -19,4 +19,6 @@ urlpatterns = [
 
     path('enquire/', views.userEnquiry, name='enquire'),
     path('delete-enquiry/<pk>', views.deleteEnquiry, name='delete-enquiry'),
+
+    path('review/', views.reviewForm, name='review'),
 ]

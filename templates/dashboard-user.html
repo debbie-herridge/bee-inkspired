@@ -2,55 +2,80 @@
 
 {% block content %}
 
+
 <div class="container text-center">
-    <div class="row">
-      <div class="col dashboard-heading">
-        <h1>Account information</h1>
-        <div class="card card-body">
-          <table class="table">
-            <tr>
-              <th><h2>Username</h2></th>
-              <th><h2>Name</h2></th>
-              <th><h2>Surname</h2></th>
-              <th><h2>Email</h2></th>
-              <th></th>
-            </tr>
-            <tr>
-              <td>{{request.user.username}}</td>
-              <td>{{request.user.first_name}}</td>
-              <td>{{request.user.last_name}}</td>
-              <td>{{request.user.email}}</td>
-              <td><a class='btn btn-dark' href="{% url 'edit_profile' %}">Update your details</a></td>
-            </tr>
-          </table>
-        </div>
+  <div class="row">
+    <div class="col dashboard-heading">
+      <h1>Account information</h1>
+      <div class="card card-body">
+        <table class="table">
+          <tr>
+            <th><h2>Username</h2></th>
+            <th><h2>Name</h2></th>
+            <th><h2>Surname</h2></th>
+            <th><h2>Email</h2></th>
+            <th></th>
+          </tr>
+          <tr>
+            <td>{{request.user.username}}</td>
+            <td>{{request.user.first_name}}</td>
+            <td>{{request.user.last_name}}</td>
+            <td>{{request.user.email}}</td>
+            <td><a class='btn btn-dark' href="{% url 'edit_profile' %}">Update your details</a></td>
+          </tr>
+        </table>
       </div>
     </div>
-    <div class="row"> 
-      <div class="col dashboard-heading">
-        <h1>Upcoming bookings</h1>
-        <div class="card card-body">
-          <table class="table">
+  </div>
+  <div class="row"> 
+    <div class="col dashboard-heading">
+      <h1>Upcoming bookings</h1>
+      <div class="card card-body">
+        <table class="table">
+          <tr>
+            <th><h2>Date</h2></th>
+            <th><h2>Time</h2></th>
+            <th><h2>Design</h2></th>
+            <th><h2>Preference</h2></th>
+            <th></th>
+            <th></th>
+            </tr>
+          {% for booking in bookings %}
             <tr>
-              <th><h2>Date</h2></th>
-              <th><h2>Time</h2></th>
-              <th><h2>Design</h2></th>
-              <th><h2>Preference</h2></th>
-              <th></th>
-              <th></th>
-             </tr>
-            {% for booking in bookings %}
+              <td>{{booking.date}}</td>
+              <td>9AM - 10AM</td>
+              <td><img id="booking-image" src="{{ booking.design.image.url }}" alt="{{ booking.design }}"></td>
+              <td>{{booking.preference}}</td>
+              <td><a class='btn btn-dark' href="{% url 'update-booking' booking.pk %}">Update this booking</a></td>
+              <td><a class='btn btn-dark' href="{% url 'cancel-booking' booking.pk %}">Cancel booking</a></td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col dashboard-heading">
+      <h1>Previous bookings</h1>
+      <div class="card card-body">
+        <table class="table">
+          <tr>
+            <th><h2>Date</h2></th>
+            <th><h2>Time</h2></th>
+            <th><h2>Design</h2></th>
+            <th><h2>Preference</h2></th>
+            <th></th>
+            </tr>
+            {% for booking in previous_booking %}
               <tr>
                 <td>{{booking.date}}</td>
                 <td>9AM - 10AM</td>
                 <td><img id="booking-image" src="{{ booking.design.image.url }}" alt="{{ booking.design }}"></td>
                 <td>{{booking.preference}}</td>
-                <td><a class='btn btn-dark' href="{% url 'update-booking' booking.pk %}">Update this booking</a></td>
-                <td><a class='btn btn-dark' href="{% url 'cancel-booking' booking.pk %}">Cancel booking</a></td>
+                <td><a class='btn btn-dark' href="{% url 'review' %}">Leave a review!</a></td>
               </tr>
             {% endfor %}
-          </table>
-        </div>
+        </table>
       </div>
     </div>
   </div>

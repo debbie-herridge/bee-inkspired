@@ -37,3 +37,21 @@ class Enquiry(models.Model):
     customer = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     enquiry = models.CharField(max_length=500, null=True)
     image = models.FileField(upload_to='customer-enqiries')
+
+class Review(models.Model):
+    RECOMMEND = (
+        ('will not recommend','Will not recommend'),
+        ('might recommend','Might recommend'),
+        ('absolutely recommend','Absolutely recommend!'),
+    )
+    RATING = (
+        ('1','1'),
+        ('2','2'),
+        ('3','3'),
+        ('4','4'),
+        ('5','5'),
+    )
+    customer = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    rating = models.CharField(max_length=200, null=True, choices=RATING)
+    recommend = models.CharField(max_length=200, null=True, choices=RECOMMEND)
+    review = models.CharField(max_length=500, null=True)
