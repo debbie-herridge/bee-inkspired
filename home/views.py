@@ -85,7 +85,7 @@ def customerDashboard(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['admin'])
 def artistDashboard(request):
-    bookings = Booking.objects.all()
+    bookings = Booking.objects.all().order_by('date')
     enquiry = Enquiry.objects.all()
     total_bookings = bookings.count()
     enquiry_bookings = enquiry.count()
@@ -176,6 +176,7 @@ def updateBooking(request, pk):
     context = {
         'form':form,
         'dates':dates,
+        'booking':booking,
     }
     return render(request, 'update-booking.html', context)
 
