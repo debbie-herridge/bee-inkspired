@@ -30,7 +30,6 @@ class Booking(models.Model):
     date = models.DateField(default=date.today)
     customer = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     design = models.ForeignKey(Design, null=True, on_delete=models.SET_NULL)
-    available = models.BooleanField(default=True)
     preference = models.CharField(max_length=200, null=True, choices=PREFERENCE)
 
 # User upload image enquiry

@@ -18,4 +18,5 @@ urlpatterns = [
     path('cancel-booking/<pk>/', views.cancelBooking, name='cancel-booking'),
 
     path('enquire/', views.userEnquiry, name='enquire'),
+    path('delete-enquiry/<pk>', views.deleteEnquiry, name='delete-enquiry'),
 ]

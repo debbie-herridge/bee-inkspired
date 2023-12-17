@@ -213,3 +213,15 @@ def userEnquiry(request):
         'form':form,
     }
     return render(request, 'enquire.html', context)
+
+# Delete an enquiry
+@login_required
+def deleteEnquiry(request, pk):
+    enquiry = get_object_or_404(Enquiry, pk=pk)
+    if request.method == 'POST':
+        enquiry.delete()
+        return redirect('artist-dashboard')
+    context = {
+        'enquiry':enquiry,
+    }
+    return render(request, 'delete-enquiry.html', context)

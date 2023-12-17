@@ -56,7 +56,7 @@
                 <td>{{enquiries.customer.email}}</td>
                 <td>{{enquiries.enquiry}}</td>
                 <td><a class='btn btn-dark' href="{{enquiries.image.url}}" target="_blank">View Image</a></td>
-                <td><a class='btn btn-dark' href="">Delete</a></td>
+                <td><a class='btn btn-dark' href="{% url 'delete-enquiry' enquiries.pk %}">Delete</a></td>
               </tr>
               {% endfor %}
             </table>
