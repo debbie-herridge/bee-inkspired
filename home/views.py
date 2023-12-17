@@ -92,7 +92,8 @@ def customerDashboard(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['admin'])
 def artistDashboard(request):
-    bookings = Booking.objects.all().order_by('date')
+    today = datetime.datetime.today()
+    bookings = Booking.objects.all().filter(date__gte=today).order_by('date')
     enquiry = Enquiry.objects.all()
     total_bookings = bookings.count()
     enquiry_bookings = enquiry.count()

@@ -38,6 +38,7 @@ class Enquiry(models.Model):
     enquiry = models.CharField(max_length=500, null=True)
     image = models.FileField(upload_to='customer-enqiries')
 
+# customer reviews
 class Review(models.Model):
     RECOMMEND = (
         ('will not recommend','Will not recommend'),
