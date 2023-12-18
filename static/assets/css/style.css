@@ -5,44 +5,11 @@ body {
     font-family: 'Bricolage Grotesque', sans-serif !important;
 }
 
+p {
+    color: #cfb442;
+}
+
 /* Navigation bar */
-@media only screen and (min-width: 992px) {
-    .navbar .container {
-        flex-direction: column;
-    }
-}
-
-@media only screen and (max-width: 992px) {
-    .navbar .container {
-        display: inline !important;
-    }
-}
-
-@media only screen and (max-width: 500px) {
-    h2 {
-        font-size: small !important;
-    }
-    #booking-image {
-        height: 50px !important;
-        width: 50px !important;
-    }
-    th, td {
-        margin: 0 !important;
-        padding: 20px 0 !important;
-        font-size: small;
-    }
-    .card-body {
-        padding: 0 !important;
-    }
-    .form-container {
-        width: 80% !important;
-    }
-    .img-background {
-        width: 90% !important;
-        padding: 0 !important;
-    }
-}
-
 .navbar .navbar-nav {
         margin-top: 0.5em;
         border-top: 2px solid #cfb442;
@@ -83,7 +50,6 @@ body {
     color: rgba(207,180,66, 1) !important;
 }
 
-
 /* footer */
 .footer {
     bottom: 0;
@@ -109,49 +75,7 @@ body {
     object-fit: cover;
 }
 
-/* Artist information page section */
-/* .container-fluid {
-    padding: 75px 0px;
-} */
-
-p {
-    color: #cfb442;
-}
-
-/* link to send enquiry */
-p a {
-    color: #cfb442;
-    font-weight: bolder;
-}
-
-p a:hover {
-    text-decoration: underline;
-    color: #ffdf50;
-
-}
-
-input {
-    text-align: center;
-}
-
-select {
-    width: 60%;
-    text-align: center;
-    height: 40px;
-    background: transparent;
-    border: #000 2px solid;
-}
-
-/* enquiry form */
-#id_enquiry {
-    width: 60%;
-    min-height: 150px;
-    background: transparent;
-    border: #000 2px solid;
-    border-radius: 5px;
-}
-
-/* heading */
+/* headings */
 h1{
     color: #cfb442 !important;
     text-transform: uppercase;
@@ -174,34 +98,13 @@ h4 {
     padding: 10px 0px;
 }
 
-.booking-image {
-    width: 200px;
-    object-fit: cover;
+.bold-header {
+    color: #000 !important;
+    font-weight: bolder;
+    letter-spacing: 5px;
 }
 
-.design-background{
-    background-color: #fff;
-}
-
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* form */
-.form-container{
-    width:40%;
-}
-
-.form-submit {
-    padding: 50px 0px;
-}
-
-.form-control {
-    margin: 10px 0;
-}
-
+/* general styling */
 .img-background {
     background-image: url("/static/assets/images/studio-transparent.jpg");
     background-position: center;
@@ -214,23 +117,15 @@ h4 {
     text-align: center;
 }
 
-.login-header {
-    color: #000 !important;
-    font-weight: bolder;
-    letter-spacing: 5px;
-}
-
-.booking-label {
-    color: #0d0d0d !important;
-    font-weight: bolder;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    font-size: large;
-}
-
 .btn {
     text-transform: uppercase;
     margin-bottom: 20px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* studio google map */
@@ -251,15 +146,17 @@ h4 {
     width: 100%;
 }
 
-/* dashboard */
-.card-body {
-    background-image: url("/static/assets/images/studio-transparent.jpg");
-    background-position: center;
+/* login link */
+.login-link{
+    color: #000;
+    margin: 50px;
+    text-decoration: none;
 }
 
-.table {
-    --bs-table-bg: transparent !important;
-    border-color: transparent !important;
+.login-link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bolder;
 }
 
 /* flash design images */
@@ -295,25 +192,81 @@ transform: translate(-50%, -50%);
 text-align: center;
 }
 
-
-/* login link */
-.login-link{
-    color: #000;
-    margin: 50px;
-    text-decoration: none;
+/* user booking form styles */
+.booking-label {
+    color: #0d0d0d !important;
+    font-weight: bolder;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-size: large;
 }
 
-.login-link:hover {
-    cursor: pointer;
-    text-decoration: underline;
+select {
+    width: 60%;
+    text-align: center;
+    height: 40px;
+    background: transparent;
+    border: #000 2px solid;
+}
+
+input {
+    text-align: center;
+}
+
+/* enquiry form */
+#id_enquiry {
+    width: 60%;
+    min-height: 150px;
+    background: transparent;
+    border: #000 2px solid;
+    border-radius: 5px;
+}
+
+/* link to send enquiry */
+p a {
+    color: #cfb442;
     font-weight: bolder;
 }
 
+p a:hover {
+    text-decoration: underline;
+    color: #ffdf50;
 
-/* booking image dashboard  */
+}
+
+/* dashboard */
+.card-body {
+    background-image: url("/static/assets/images/studio-transparent.jpg");
+    background-position: center;
+}
+
+.table {
+    --bs-table-bg: transparent !important;
+    border-color: transparent !important;
+}
+
+.booking-image {
+    width: 200px;
+    object-fit: cover;
+}
+
+/* booking image on customer dashboard  */
 #booking-image {
     height: 150px;
     width: 150px;
+}
+
+/* form */
+.form-container{
+    width:40%;
+}
+
+.form-submit {
+    padding: 50px 0px;
+}
+
+.form-control {
+    margin: 10px 0;
 }
 
 /* review text input */
@@ -325,14 +278,40 @@ text-align: center;
     border-radius: 5px;
 }
 
-
-table {
-    table-layout: fixed;
+/* Media queries to change navigation bar */
+@media only screen and (max-width: 992px) {
+    .navbar .container {
+        display: inline !important;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .navbar .container {
+        flex-direction: column;
+    }
 }
 
-th,td {
-    border-style: solid;
-    border-width: 5px;
-    border-color: #BCBCBC;
-    word-wrap: break-word;
+/* Media query small screens */
+@media only screen and (max-width: 500px) {
+    h2 {
+        font-size: small !important;
+    }
+    #booking-image {
+        height: 50px !important;
+        width: 50px !important;
+    }
+    th, td {
+        margin: 0 !important;
+        padding: 20px 0 !important;
+        font-size: small;
+    }
+    .card-body {
+        padding: 0 !important;
+    }
+    .form-container {
+        width: 80% !important;
+    }
+    .img-background {
+        width: 90% !important;
+        padding: 0 !important;
+    }
 }

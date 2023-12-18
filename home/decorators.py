@@ -1,8 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect
 
-# Check if user is logged in to stop login or register page showing
 def unauthenticated_user(view_func):
+    """
+    Check if user is logged in to stop login or register page showing
+    """
     def wrapper_func(request, *args, **kwargs):
         if request.user.is_authenticated:
             return redirect ('home')
@@ -10,8 +12,11 @@ def unauthenticated_user(view_func):
             return view_func(request, *args, **kwargs)
     return wrapper_func
 
-# Restrict user on which dashboard they can see
+
 def allowed_users(allowed_roles=[]):
+    """
+    Restrict user on which dashboard they can see
+    """
     def decorator(view_func):
         def wrapper_func(request, *args, **kwargs):
             

@@ -38,26 +38,27 @@
     </div>
     <div class="row">
         <div class="col dashboard-heading">
-          <h1>Outstanding enquiries: {{enquiry_bookings}} </h1>
-          <div class="card card-body">
-            <table class="table">
-              <tr>
-                <th><h2>Name</h2></th>
-                <th><h2>Email</h2></th>
-                <th><h2>Details</h2></th>
-                <th><h2>Image</h2></th>
-                <th><h2>Delete</h2></th>
-              </tr>
-              {% for enquiries in enquiry %}
-              <tr>
-                <td>{{enquiries.customer.first_name}} {{enquiries.customer.last_name}}</td>
-                <td>{{enquiries.customer.email}}</td>
-                <td>{{enquiries.enquiry}}</td>
-                <td><a class='btn btn-dark' href="{{enquiries.image.url}}" target="_blank">View Image</a></td>
-                <td><a class='btn btn-dark' href="{% url 'delete-enquiry' enquiries.pk %}">Delete</a></td>
-              </tr>
-              {% endfor %}
-            </table>
+            <h1>Outstanding enquiries: {{enquiry_bookings}} </h1>
+            <div class="card card-body">
+                <table class="table">
+                    <tr>
+                    <th><h2>Name</h2></th>
+                    <th><h2>Email</h2></th>
+                    <th><h2>Details</h2></th>
+                    <th><h2>Image</h2></th>
+                    <th><h2>Delete</h2></th>
+                    </tr>
+                    {% for enquiries in enquiry %}
+                    <tr>
+                    <td>{{enquiries.customer.first_name}} {{enquiries.customer.last_name}}</td>
+                    <td>{{enquiries.customer.email}}</td>
+                    <td>{{enquiries.enquiry}}</td>
+                    <td><a class='btn btn-dark' href="{{enquiries.image.url}}" target="_blank">View Image</a></td>
+                    <td><a class='btn btn-dark' href="{% url 'delete-enquiry' enquiries.pk %}">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
     </div>
 </div>

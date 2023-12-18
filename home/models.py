@@ -3,15 +3,19 @@ from django.contrib.auth.models import User
 from datetime import date
 
 
-# Tag model
 class Tag(models.Model):
+    """
+    Simple tag model to catagorise designs.
+    """
     name = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.name
 
-# Flash designs model
 class Design(models.Model):
+    """
+    Model for flash designs.
+    """
     name = models.CharField(max_length=200, null=True)
     tags = models.ManyToManyField(Tag)
     image = models.ImageField(null=True, blank=True)
@@ -19,8 +23,10 @@ class Design(models.Model):
     def __str__(self):
         return self.name
 
-# customer reviews
 class Review(models.Model):
+    """
+    Model for customer review comment and scores.
+    """
     RECOMMEND = (
         ('will not recommend','Will not recommend'),
         ('might recommend','Might recommend'),
@@ -38,8 +44,10 @@ class Review(models.Model):
     recommend = models.CharField(max_length=200, null=True, choices=RECOMMEND)
     review = models.CharField(max_length=500, null=True)
 
-# Appointment booking model
 class Booking(models.Model):
+    """
+    Booking appointment with relationship to all other models.
+    """
     PREFERENCE = (
         ('radio','Radio'),
         ('talking','Talking'),
@@ -52,8 +60,10 @@ class Booking(models.Model):
     preference = models.CharField(max_length=200, null=True, choices=PREFERENCE)
     review = models.ForeignKey(Review, null=True, blank=True, on_delete=models.SET_NULL)
 
-# User upload image enquiry
 class Enquiry(models.Model):
+    """
+    Stores user enquiry and reference image.
+    """
     customer = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     enquiry = models.CharField(max_length=500, null=True)
     image = models.FileField(upload_to='customer-enqiries')

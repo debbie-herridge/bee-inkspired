@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="img-background mx-auto">
-    <h1 class="login-header">Update your details</h1>
+    <h1 class="bold-header">Update your details</h1>
     <div class="col-md-12 section-column center">
         <form class="form-container" method="POST" action="">
             {% csrf_token %}
@@ -22,8 +22,8 @@
                 <a class="btn btn-dark" href="{% url 'customer-dashboard' %}">Back to dashboard</a>
                 <button type="submit" class="btn btn-dark btn-block">Update!</button>
             </div>
-    </form>
-    {{form.errors}}
+            {{form.errors}}
+        </form>
     </div>
 </div>
 

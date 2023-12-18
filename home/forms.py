@@ -5,8 +5,11 @@ from django import forms
 
 from .models import *
 
-# Register new user form
+
 class CreateUserForm(UserCreationForm):
+    """
+    Register new user form.
+    """
     class Meta: 
         model = User
         fields = ['username', 'first_name', 'last_name', 'email','password1','password2']
@@ -24,19 +27,26 @@ class EditUserProfile(UserChangeForm):
         model = User
         fields = ['first_name', 'last_name', 'username','email']
 
-# Booking form
 class BookingForm(ModelForm):
+    """
+    Booking form for users to book a flash design appointment.
+    """
     class Meta: 
         model = Booking
         fields = ['design','preference']
 
-# Enquiry form
 class EnquiryForm(ModelForm):
+    """
+    Enquiry form for users to upload a reference image with a query.
+    """
     class Meta: 
         model = Enquiry
         fields = ['enquiry','image']
 
 class UserReview(ModelForm):
+    """
+    Form for users to leave a review for their previous appointments.
+    """
     class Meta: 
         model = Review
         fields = ['rating','recommend', 'review']
