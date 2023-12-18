@@ -13,7 +13,7 @@
             <tr>
                 <th><h2>Date</h2></th>
                 <th><h2>Time</h2></th>
-                <th colspan="2"><h2>Client</h2></th>
+                <th><h2>Client</h2></th>
                 <th><h2>Email</h2></th>
                 <th><h2>Design</h2></th>
                 <th><h2>Tags</h2></th>
@@ -23,8 +23,7 @@
                 <tr>
                     <td>{{booking.date}}</td>
                     <td>9AM - 10AM</td>
-                    <td>{{booking.customer.first_name}}</td>
-                    <td>{{booking.customer.last_name}}</td>
+                    <td>{{booking.customer.first_name}} {{booking.customer.last_name}}</td>
                     <td>{{booking.customer.email}}</td>
                     <td>{{booking.design}}</td>
                     <td>
@@ -43,7 +42,7 @@
           <div class="card card-body">
             <table class="table">
               <tr>
-                <th colspan="2"><h2>Name</h2></th>
+                <th><h2>Name</h2></th>
                 <th><h2>Email</h2></th>
                 <th><h2>Details</h2></th>
                 <th><h2>Image</h2></th>
@@ -51,8 +50,7 @@
               </tr>
               {% for enquiries in enquiry %}
               <tr>
-                <td>{{enquiries.customer.first_name}}</td>
-                <td>{{enquiries.customer.last_name}}</td>
+                <td>{{enquiries.customer.first_name}} {{enquiries.customer.last_name}}</td>
                 <td>{{enquiries.customer.email}}</td>
                 <td>{{enquiries.enquiry}}</td>
                 <td><a class='btn btn-dark' href="{{enquiries.image.url}}" target="_blank">View Image</a></td>
