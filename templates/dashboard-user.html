@@ -2,82 +2,65 @@
 
 {% block content %}
 
+<div class="container text-center">
+  <h1>Account information</h1>
+  <div class="card card-body">
+    <table class="table">
+      <tr>
+        <td>{{request.user.username}}</td>
+        <td>{{request.user.first_name}}</td>
+        <td>{{request.user.last_name}}</td>
+        <td>{{request.user.email}}</td>
+      </tr>
+    </table>
+    <a class='btn btn-dark' href="{% url 'edit_profile' %}">Update your details</a>
+  </div>
+</div>
 
 <div class="container text-center">
-  <div class="row">
-    <div class="col dashboard-heading">
-      <h1>Account information</h1>
-      <div class="card card-body">
-        <table class="table">
-          <tr>
-            <th><h2>Username</h2></th>
-            <th><h2>Name</h2></th>
-            <th><h2>Surname</h2></th>
-            <th><h2>Email</h2></th>
-            <th></th>
-          </tr>
-          <tr>
-            <td>{{request.user.username}}</td>
-            <td>{{request.user.first_name}}</td>
-            <td>{{request.user.last_name}}</td>
-            <td>{{request.user.email}}</td>
-            <td><a class='btn btn-dark' href="{% url 'edit_profile' %}">Update your details</a></td>
-          </tr>
-        </table>
-      </div>
-    </div>
+  <h1>Upcoming bookings</h1>
+  <div class="card card-body">
+    <table class="table">
+      {% for booking in bookings %}
+      <tr>
+        <td>{{booking.date}}</td>
+        <td>9AM - 10AM</td>
+        <td><img id="booking-image" src="{{ booking.design.image.url }}" alt="{{ booking.design }}"></td>
+        <td>{{booking.preference}}</td>
+        <td>
+          <a class='btn btn-dark' href="{% url 'update-booking' booking.pk %}"><i class="fa-solid fa-pen booking_icon"></i></a>
+          <a class='btn btn-dark' href="{% url 'cancel-booking' booking.pk %}"><i class="fa-solid fa-ban booking_icon"></i></a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
   </div>
-  <div class="row"> 
-    <div class="col dashboard-heading">
-      <h1>Upcoming bookings</h1>
-      <div class="card card-body">
-        <table class="table">
-          <tr>
-            <th><h2>Date</h2></th>
-            <th><h2>Time</h2></th>
-            <th><h2>Design</h2></th>
-            <th><h2>Preference</h2></th>
-            <th></th>
-            <th></th>
-            </tr>
-          {% for booking in bookings %}
-            <tr>
-              <td>{{booking.date}}</td>
-              <td>9AM - 10AM</td>
-              <td><img id="booking-image" src="{{ booking.design.image.url }}" alt="{{ booking.design }}"></td>
-              <td>{{booking.preference}}</td>
-              <td><a class='btn btn-dark' href="{% url 'update-booking' booking.pk %}">Update this booking</a></td>
-              <td><a class='btn btn-dark' href="{% url 'cancel-booking' booking.pk %}">Cancel booking</a></td>
-            </tr>
-          {% endfor %}
-        </table>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col dashboard-heading">
-      <h1>Previous bookings</h1>
-      <div class="card card-body">
-        <table class="table">
-          <tr>
-            <th><h2>Date</h2></th>
-            <th><h2>Time</h2></th>
-            <th><h2>Design</h2></th>
-            <th><h2>Preference</h2></th>
-            <th></th>
-            </tr>
-            {% for booking in previous_booking %}
-              <tr>
-                <td>{{booking.date}}</td>
-                <td>9AM - 10AM</td>
-                <td><img id="booking-image" src="{{ booking.design.image.url }}" alt="{{ booking.design }}"></td>
-                <td>{{booking.preference}}</td>
-                <td><a class='btn btn-dark' href="{% url 'review' %}">Leave a review!</a></td>
-              </tr>
-            {% endfor %}
-        </table>
-      </div>
-    </div>
+</div>
+
+<div class="container text-center">
+  <h1>Previous bookings</h1>
+  <div class="card card-body">
+    <table class="table">
+      {% for booking in previous_booking %}
+        <tr>
+          <td>{{booking.date}}</td>
+          <td>9AM - 10AM</td>
+          <td><img id="booking-image" src="{{ booking.design.image.url }}" alt="{{ booking.design }}"></td>
+          <td>{{booking.preference}}</td>
+          {% if booking.review %}
+            <td>
+              <span class="d-none d-md-inline"><h4>Thank you for your review!</h4></span>
+              <br>
+              <i class="fa-solid fa-heart fa-beat"></i>
+            </td>
+          {% else %}
+            <td>
+              <a class='btn btn-dark mt-3' href="{% url 'review' booking.pk %}"><i class="fa-solid fa-pen-to-square"></i></a>
+            </td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </table>
   </div>
 </div>
 

@@ -237,13 +237,15 @@ def deleteEnquiry(request, pk):
 
 # Booking flash design appointment page
 @login_required
-def reviewForm(request):
+def reviewForm(request, pk):
     if request.method == 'POST':
         form = UserReview(request.POST)
+        booking = get_object_or_404(Booking, pk=pk)
         if form.is_valid():
             review = form.save(commit=False)
             review.customer = request.user
             review.save()
+            print(booking)
             return redirect('customer-dashboard')
         else:
             print('form not valid')
