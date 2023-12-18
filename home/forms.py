@@ -2,15 +2,13 @@ from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
 from django import forms
-
 from .models import *
-
 
 class CreateUserForm(UserCreationForm):
     """
     Register new user form.
     """
-    class Meta: 
+    class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email','password1','password2']
 
@@ -31,7 +29,7 @@ class BookingForm(ModelForm):
     """
     Booking form for users to book a flash design appointment.
     """
-    class Meta: 
+    class Meta:
         model = Booking
         fields = ['design','preference']
 
@@ -39,7 +37,7 @@ class EnquiryForm(ModelForm):
     """
     Enquiry form for users to upload a reference image with a query.
     """
-    class Meta: 
+    class Meta:
         model = Enquiry
         fields = ['enquiry','image']
 
@@ -47,6 +45,6 @@ class UserReview(ModelForm):
     """
     Form for users to leave a review for their previous appointments.
     """
-    class Meta: 
+    class Meta:
         model = Review
         fields = ['rating','recommend', 'review']

@@ -6,6 +6,50 @@ Bee Inkspired is the homepage for Olivia Harpers tattoo business, it showcases h
 
 The live link can be found [here]()!
 
+
+# Table of Contents
+- [Bee Inkspired](#bee-inkspired)
+  * [User Experience (UX)](#user-experience--ux-)
+    + [User Stories](#user-stories)
+      - [Goals for the user](#goals-for-the-user)
+      - [Goals for the Artist](#goals-for-the-artist)
+    + [Design](#design)
+      - [Wireframes](#wireframes)
+  * [Features](#features)
+    + [Future features](#future-features)
+  * [Agile Methodology](#agile-methodology)
+  * [Data](#data)
+  * [Security features](#security-features)
+    + [User Authentication](#user-authentication)
+    + [Database](#database)
+  * [Testing](#testing)
+    + [Testing MVC Framework](#testing-mvc-framework)
+    + [Code](#code)
+      - [HTML Testing](#html-testing)
+      - [CSS Testing](#css-testing)
+      - [Pylint](#pylint)
+      - [Javascript](#javascript)
+    + [User Experience](#user-experience)
+  * [Bugs](#bugs)
+  * [Creating the website](#creating-the-website)
+    + [Languages](#languages)
+    + [Frameworks, Libraries and Programs](#frameworks--libraries-and-programs)
+  * [Installing](#installing)
+    + [Create the Heroku App](#create-the-heroku-app)
+    + [Attach the Postgres database](#attach-the-postgres-database)
+    + [Prepare the environment and settings.py file](#prepare-the-environment-and-settingspy-file)
+    + [Create files/directories](#create-files-directories)
+    + [Update Heroku Config Vars](#update-heroku-config-vars)
+    + [Deploy](#deploy)
+  * [Forking this repository](#forking-this-repository)
+  * [Cloning this repository](#cloning-this-repository)
+  * [Credits](#credits)
+    + [Media](#media)
+    + [Code](#code-1)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 ## User Experience (UX)
 
 The user target market is adults who are interested in a new tattoo either for a flash design or they want to contact an artist to discuss a design they have in mind. 
@@ -20,7 +64,7 @@ Only One user story was scoped and labelled 'Won't Have'. It was for customers t
 
 - Learn about the artist and view previous work
 - Easy to locate the studio 
-- Simple link to artists social media
+- Simple link to artists' social media
 - Register and log in with authentication
 - View a personalised dashboard to see user details and upcoming bookings
 - Send an enquiry with a reference image
@@ -81,6 +125,47 @@ The database url and secret key are stored in the env.py file to prevent unwante
 
 Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this site.
 
+## Testing
+
+### Testing MVC Framework
+
+The MVC framework is present in both the customer and artist dashboard where the view is fetching data from the model and displaying them. When customers update their profile details or their booking these changes are then sent to the controller which will then update the view accordingly.
+
+### Code
+
+#### HTML Testing
+
+HTML was tested using [W3 Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2F8000-debbieherri-beeinkspire-roezq58cv31.ws-eu107.gitpod.io%2F). It passed with two warnings, but as these are headings top-level headings for subjects they are not a concern.
+
+![HTML W3 Validator results](/static/assets/images/html-validator.jpg)
+
+#### CSS Testing 
+
+The CSS was tested using [W3C Validator](https://jigsaw.w3.org/css-validator/validator) and passed.
+
+![Image of CSS Validator results](/static/assets/images/css-validator.jpg)
+ 
+#### Pylint
+
+[![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/pylint-dev/pylint)
+
+Python code was tested using Pylint, which was installed in the terminal using **pip install pylint** and ran using the command **pylint $(git ls-files '*.py')**. 
+
+The python code was rated 5.98 out of 10, after an inital rating of 5.53. Improvements were made by removing any trailing whitespaces and adding final new lines. The majority of the errors were due to lines being too long in migrations and using wildcard imports for models and forms.
+
+![Pylint results](/static/assets/images/pylint-results.jpg)
+
+#### Javascript
+
+***** Fix Java map and rerun test ******
+
+### User Experience
+
+Testing user experience was done extensively. This involved testing links from different pages and making sure it was unnecessary for a user to have to scroll far or struggle to find their way back to the previous page. 
+
+Several people where asked to make accounts, add bookings and enquiries, and amend their booking and profile. The only critative feedback that was given that the errors given for the registration were not easy to read, therefore a custom error message was added which is more reader friendly to the user. Many people commented that they liked the image container for the forms and dashboard were consistant as with the font and styling.
+
+User stories where crucial to this testing to ensure that user experience using the website was seemless and easy to navigate.
 
 ## Bugs
 
@@ -116,6 +201,8 @@ The project was created on Gitpod and pushed to GitHub, the Data is stored with 
 - [GitHub](https://github.com/) 
 - [GitPod](https://gitpod.io/workspaces)
 - [Favicon](https://favicon.io/)
+- [Pylint](https://pypi.org/project/pylint/)
+- [Grammerly](https://www.grammarly.com/service/download)
 
 ## Installing
 
@@ -123,7 +210,7 @@ The project was created on Gitpod and pushed to GitHub, the Data is stored with 
 - Log in to Heroku or create an account.
 - On the main page click the button labelled New in the top right corner and from the drop-down menu select "Create New App".
 - Enter a unique and meaningful app name.
-- Next select your region.
+- Next, select your region.
 - Click on the Create App button.
 
 ### Attach the Postgres database
@@ -137,13 +224,13 @@ The project was created on Gitpod and pushed to GitHub, the Data is stored with 
 - Comment out the default database configuration.
 - Save files and make migrations.
 - Add Cloudinary URL to env.py
-- Add the cloudinary libraries to the list of installed apps.
-- Add the STATIC files settings - the url, storage path, directory path, root path, media url and default file storage path.
+- Add the Cloudinary libraries to the list of installed apps.
+- Add the STATIC files settings - the URL, storage path, directory path, root path, media URL and default file storage path.
 - Link the file to the templates directory in Heroku.
 - Change the templates directory to TEMPLATES_DIR
-- Add Heroku to the ALLOWED_HOSTS list the format ['app_name.heroku.com', 'localhost']
+- Add Heroku to the ALLOWED_HOSTS list in the format ['app_name.heroku.com', 'localhost']
 
-### Create files / directories
+### Create files/directories
 - Create requirements.txt file
 - Create three directories in the main directory; media, storage and templates.
 - Create a file named "Procfile" in the main directory and add the following: web: gunicorn beeinkspired.wsgi
@@ -173,11 +260,10 @@ The site is now live and operational.
 
 A copy of the repository is now created.
 
-
 ## Cloning this repository
 
 - Locate the repository at this [link](https://github.com/debbie-herridge/bee-inkspired)
-- Under 'Code', see the different cloning options, HTTPS, SSH, and GitHub CLI. Click the prefered cloning option, and then copy the link provided.
+- Under 'Code', see the different cloning options, HTTPS, SSH, and GitHub CLI. Click the preferred cloning option, and then copy the link provided.
 Open Terminal.
 - In Terminal, change the current working directory to the desired location of the cloned directory.
 - Type 'git clone', and then paste the URL copied from GitHub earlier.
@@ -190,7 +276,6 @@ Open Terminal.
 A big thank you to Olivia Harper for sending all the original material for me to create this project.
 
 ### Code
-
 
 Thank you to [Dennis Ivy](https://www.youtube.com/watch?v=xv_bwpA_aEA&list=PL-51WBLyFTg2vW-_6XBoUpE7vpmoR3ztO) on Youtube for his in depth walk through of a booking project.
 Also thank you to Code Institute's tutor support team for helping me out with the date issue in my booking form as mentioned in the above bugs section.

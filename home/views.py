@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.urls import reverse_lazy
@@ -6,9 +7,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group
-import datetime
 
-from .models import * 
+from .models import *
 from .forms import *
 from .decorators import unauthenticated_user, allowed_users
 
@@ -41,6 +41,8 @@ def register(request):
             group = Group.objects.get(name='customer')
             user.groups.add(group)
             return redirect('login')
+        else:
+            messages.error(request, 'Registration failed, please ensure you are filling in all the fields. Alternatively try refresh and try again')
     context = {
         'form':form
     }
@@ -131,7 +133,7 @@ def week(days):
     # For loop to get the a list of days
     for day in range(0,days):
         dates_list.append((start + datetime.timedelta(days=day)).strftime('%a %d %b %Y'))
-    
+
     # Create a list of the booked dates
     for slot in booked:
         booked_slot = slot.strftime('%a %d %b %Y')
@@ -176,7 +178,7 @@ def book(request):
         'form':form,
         'dates':dates,
         'designs':designs,
-    }  
+    }
     return render(request, 'book.html', context)
 
 @login_required
@@ -191,7 +193,6 @@ def updateBooking(request, pk):
         if form.is_valid():
             booking = form.save(commit=False)
             booking.customer = request.user
-                        
             # Change date back into strptime to save onto booking model
             date_object = request.POST['date']
             booking.date = datetime.datetime.strptime(date_object, '%a %d %b %Y').date()
@@ -221,7 +222,6 @@ def cancelBooking(request, pk):
         return redirect('customer-dashboard')
     else:
         print('form not valid')
-        print(form.errors)
     context = {
         'booking':booking,
     }
@@ -287,5 +287,5 @@ def reviewForm(request, pk):
         form = UserReview()
     context = {
         'form':form,
-    }  
+    }
     return render(request, 'review-form.html', context)
