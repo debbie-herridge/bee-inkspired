@@ -167,6 +167,10 @@ Several people where asked to make accounts, add bookings and enquiries, and ame
 
 User stories where crucial to this testing to ensure that user experience using the website was seemless and easy to navigate.
 
+Lighthouse on Google Dev tools was used to test the load time for the site, it received a score of 84.
+
+![Lighthouse results](/static/assets/images/lighthouse-results.jpg)
+
 ## Bugs
 
 The DateField in the booking model caused many bugs and needed plenty of troubleshooting. As the form to create a booking is made with a custom date field to only display the upcoming 2 weeks, this was not included in the form using the Django form template. Therefore this data then had to be modified from strftime, which makes the date more user friendly, back into strptime to be saved onto the booking model.
