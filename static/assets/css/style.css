@@ -139,6 +139,11 @@ h4 {
     text-align: center;
 }
 
+/* iframe map */
+#iframe-container {
+    width: 100%;
+}
+
 /* gallery */
 .gallery {
     overflow: hidden;

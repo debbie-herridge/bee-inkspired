@@ -2,9 +2,9 @@
 
 ![Am I responsive image of website](/static/assets/images/am-i-responsive.jpeg)
 
-Bee Inkspired is the homepage for Olivia Harpers tattoo business, it showcases her work and allows her and her customers a place to manage appointment bookings and deal with enquires. The website is themed around her brand and logo.
+Bee Inkspired is the homepage for Olivia Harper's tattoo business, it showcases her work and allows her and her customers a place to manage appointment bookings and deal with enquiries. The website is themed around her brand and logo.
 
-The live link can be found [here]()!
+The live link can be found [here](https://bee-inkspired-a51d6678dda0.herokuapp.com/)!
 
 
 # Table of Contents
@@ -52,45 +52,48 @@ The live link can be found [here]()!
 
 ## User Experience (UX)
 
-The user target market is adults who are interested in a new tattoo either for a flash design or they want to contact an artist to discuss a design they have in mind. 
+The user target market is adults who are interested in a new tattoo, either for a flash design or they want to contact an artist to discuss a design they have in mind. 
 
 ### User Stories
  
-GitHub issues custom template feature is used to display the User Stories that was used for building this site.
+GitHub issues custom template feature is used for User Stories, it is crucial to the creation and development of this project.
 
-Only One user story was scoped and labelled 'Won't Have'. It was for customers to pay a deposit before their booking is secure, this is not currently a feature on the site.
+One user story was scoped for customers to pay a deposit before their booking is secure, this was labelled as 'Won't Have' and is not currently a feature on the site.
 
 #### Goals for the user
 
-- Learn about the artist and view previous work
+- Learn about the artist and view their previous work
 - Easy to locate the studio 
-- Simple link to artists' social media
-- Register and log in with authentication
-- View a personalised dashboard to see user details and upcoming bookings
-- Send an enquiry with a reference image
+- Link to the artist social media
+- Register and log in with simple authentication process
+- View a personalised dashboard to see personal details and upcoming bookings
+- Send an enquiry with a reference image to the artist
 
 
 #### Goals for the Artist
 
-- Separate dashboard to show upcoming bookings and enquiries
+- Dashboard to show only upcoming bookings
+- Have a section to show outstanding enquires 
+- Delete enquiries to keep dashboard organised and current
+- Have customer reviews show up on home page to help promote business
 
 ### Design 
 
 The theme is consistant through the site, mainly tailored around being dark and Gothic much like her studio. 
 The yellow font (#cfb442) was chosen using a colour picker on her logo to ensure the website represents her brand exactly.
-The font was chosen to compliment her logo rather than match it, as the font needed to be bolder to stand out against the dark background. The chosen font is Bricolage Grotesque imported via Google Fonts with a back up of Sans Sarif.
+The font was chosen to compliment her logo rather than match it, as the font needed to be bolder to stand out against the dark background. The chosen font is Bricolage Grotesque imported via Google Fonts with a backup of Sans Sarif.
 
 #### Wireframes
 
 ![Wireframe screenshot](static/assets/images/wireframes.jpeg)
 
-The website has stuck to its origninal wireframe design, but more pages had to be added than what was in the scope. The addition pages were form pages such as the enquiry form and customer review page which follow the login page wireframe.
+The website has stuck to its original wireframe design, but more pages had to be added than what was in the scope. The additional pages were form pages such as the enquiry form and customer review page which follow the login page wireframe to help with consistent styling.
 
 ## Features
 
-As a B2C site the final aim is to impress customers to book a tattoo or make an enquiry. The site needs to be easy to navigate and comprehensive in the information given on Olivia, her skills and the studio. The booking system needs to be straight forward and simple.
+As a B2C site, the final aim is to impress customers to book a tattoo or make an enquiry. The site needs to be easy to navigate and comprehensive in the information given on Olivia, her skills and the studio.
 
-Current features fufill all the user goals for the website as well as an additional feature allowing customers to leave a review for a previous booking on their dash that will then be automatically displayed on the homepage.
+Current features fulfil all the user goals for the website as well as an additional feature allowing customers to leave a review for a previous booking on their dash that will then be automatically displayed on the homepage.
 
 ### Future features
 
@@ -103,11 +106,11 @@ Current features fufill all the user goals for the website as well as an additio
 
 ## Agile Methodology
 
-After using GitHub's issues to create my User Stories, these where then put onto the projects GitHub project board, which can be viewed [here](https://github.com/users/debbie-herridge/projects/11/views/1). An addition colomn was added for 'current iteration' to display which Epics where being worked on in the current Milestone.
+After using GitHub's issues to create the User Stories, these where then put onto the projects GitHub project board, which can be viewed [here](https://github.com/users/debbie-herridge/projects/11/views/1). An addition colomn was added for 'current iteration' to display which Epics where being worked on in the current Milestone.
 
 ## Data
 
-The diagram below shows the data schema and shows the database models relationships with each other.
+The diagram below shows the data schema and shows the models relationships with each other.
 ![Diagram for database](/static/assets/images/data-schema.jpeg)
 
 ## Security features
@@ -135,7 +138,7 @@ The MVC framework is present in both the customer and artist dashboard where the
 
 #### HTML Testing
 
-HTML was tested using [W3 Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2F8000-debbieherri-beeinkspire-roezq58cv31.ws-eu107.gitpod.io%2F). It passed with two warnings, but as these are headings top-level headings for subjects they are not a concern.
+HTML was tested using [W3 Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2F8000-debbieherri-beeinkspire-roezq58cv31.ws-eu107.gitpod.io%2F). It passed with two warnings.
 
 ![HTML W3 Validator results](/static/assets/images/html-validator.jpg)
 
@@ -149,21 +152,21 @@ The CSS was tested using [W3C Validator](https://jigsaw.w3.org/css-validator/val
 
 [![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/pylint-dev/pylint)
 
-Python code was tested using Pylint, which was installed in the terminal using **pip install pylint** and ran using the command **pylint $(git ls-files '*.py')**. 
+Python code was tested using Pylint, installed in the terminal using **pip install pylint** and ran using the command **pylint $(git ls-files '*.py')**. 
 
-The python code was rated 5.98 out of 10, after an inital rating of 5.53. Improvements were made by removing any trailing whitespaces and adding final new lines. The majority of the errors were due to lines being too long in migrations and using wildcard imports for models and forms.
+The Python code was rated 5.98 out of 10, after an inital rating of 5.53. Improvements were made by removing any trailing whitespaces and adding final new lines. The majority of the errors were due to lines being too long in migrations and using wildcard imports for models and forms.
 
 ![Pylint results](/static/assets/images/pylint-results.jpg)
 
 #### Javascript
 
-***** Fix Java map and rerun test ******
+The project only uses Javascript to integrate an interactive map from Google using an API key. The map worked perfectly in the local environment however once deployed to Heroku it no longer displayed as previous. The error was due to **RefererNotAllowedMapError**. To solve this the deployed link was added to the list of allowed referrers for that API key on Google cloud.
 
 ### User Experience
 
 Testing user experience was done extensively. This involved testing links from different pages and making sure it was unnecessary for a user to have to scroll far or struggle to find their way back to the previous page. 
 
-Several people where asked to make accounts, add bookings and enquiries, and amend their booking and profile. The only critative feedback that was given that the errors given for the registration were not easy to read, therefore a custom error message was added which is more reader friendly to the user. Many people commented that they liked the image container for the forms and dashboard were consistant as with the font and styling.
+Several people where asked to make accounts, add bookings and enquiries, and amend their booking and profile. The only critative feedback that was given that the errors given for the registration were not easy to read, therefore a custom error message was added which is more reader friendly to the user. Many people commented that they liked that the image container for the forms and dashboard were consistant with the font and styling.
 
 User stories where crucial to this testing to ensure that user experience using the website was seemless and easy to navigate.
 
@@ -175,7 +178,7 @@ Lighthouse on Google Dev tools was used to test the load time for the site, it r
 
 The DateField in the booking model caused many bugs and needed plenty of troubleshooting. As the form to create a booking is made with a custom date field to only display the upcoming 2 weeks, this was not included in the form using the Django form template. Therefore this data then had to be modified from strftime, which makes the date more user friendly, back into strptime to be saved onto the booking model.
 
-To solve the issue [this article](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior) from Python.org was extremely helpful in solving the issue.
+[This article](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior) from Python.org was extremely helpful in solving the issue.
 
 A bug following on from the above was iterating through the list of dates and removing the booked dates so that users could not select those from the custom date field in the booking form. [This article](https://www.geeksforgeeks.org/python-remove-all-values-from-a-list-present-in-other-list/) from GeeksForGeeks helped understand how to iterate through one list and remove any matching data in another list.
 
