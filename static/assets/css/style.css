@@ -129,11 +129,6 @@ h4 {
 }
 
 /* studio google map */
-#map {
-    height: 500px;
-    margin-top: 40px;
-  }
-
 .studio-address {
     color: #cfb442 !important;
     text-align: center;

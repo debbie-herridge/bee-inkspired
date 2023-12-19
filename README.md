@@ -154,13 +154,13 @@ The CSS was tested using [W3C Validator](https://jigsaw.w3.org/css-validator/val
 
 Python code was tested using Pylint, installed in the terminal using **pip install pylint** and ran using the command **pylint $(git ls-files '*.py')**. 
 
-The Python code was rated 5.98 out of 10, after an inital rating of 5.53. Improvements were made by removing any trailing whitespaces and adding final new lines. The majority of the errors were due to lines being too long in migrations and using wildcard imports for models and forms.
+The Python code was rated 5.98 out of 10, after an initial rating of 5.53. Improvements were made by removing any trailing whitespaces and adding final new lines. The majority of the errors were due to lines being too long in migrations and using wildcard imports for models and forms.
 
 ![Pylint results](/static/assets/images/pylint-results.jpg)
 
 #### Javascript
 
-The project only uses Javascript to integrate an interactive map from Google using an API key. The map worked perfectly in the local environment however once deployed to Heroku it no longer displayed as previous. The error was due to **RefererNotAllowedMapError**. To solve this the deployed link was added to the list of allowed referrers for that API key on Google cloud.
+The project only uses Javascript to integrate an interactive map from Google using an API key. The map worked perfectly in the local environment however once deployed to Heroku it no longer displayed as previously. The error was due to **RefererNotAllowedMapError**. To attempt to solve this the deployed link was added to the list of allowed referrers for that API key on Google Cloud. However the map was inserted in using an iframe as recommended by the Code Institute tutor support team. This allowed the map to render on the website but not using JavaScript.
 
 ### User Experience
 

@@ -7,26 +7,5 @@
 <div id="iframe-container">
     <iframe loading="lazy" style="width:100%;height:400px;" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=beauty%20bar%20union%20street&key=AIzaSyDyBrjV7RiOwaWd2k03PDNe8avz7aoZ4ck"></iframe>
 </div>
-<div>
-    <div id="map"></div>
-</div>
-
-
-<script>
-    function initMap() {
-        const myLatLng = { lat: 52.66568422490566, lng: 0.1604611599127387 };
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 17,
-            center: myLatLng,
-        });
-
-        new google.maps.Marker({
-            position: myLatLng,
-            map,
-        });
-    }
-    window.initMap = initMap;
-
-</script>
 
 {%endblock%}
